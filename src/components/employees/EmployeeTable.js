@@ -7,11 +7,13 @@ import {Table} from 'react-bootstrap';
 class EmployeeTable extends Component {
   render() {
 
-    let employeeRows = this.props.employees.map(function (employee) {
-      return (
-        <EmployeeRow employee={employee} key={employee._id} />
-      );
-    });
+      const actions = this.props.actions;
+
+      let employeeRows = this.props.employees.map(function (employee) {
+          return (
+              <EmployeeRow employee={employee} key={employee._id} actions={actions} />
+          );
+      });
 
     return (
       <Table striped bordered condensed hover>
@@ -22,6 +24,8 @@ class EmployeeTable extends Component {
           <th>First Name</th>
           <th>Last Name</th>
           <th>Admin</th>
+          <th>Delete</th>
+
         </tr>
         </thead>
         <tbody>
